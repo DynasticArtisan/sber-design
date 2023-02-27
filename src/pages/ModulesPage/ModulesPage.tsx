@@ -9,7 +9,10 @@ const ModulesPage = () => {
     <Layout>
       <Header />
       <Container>
-        <Modules />
+        <div className="page">
+          <div className="page__title">Модули</div>
+          <Modules />
+        </div>
       </Container>
     </Layout>
   );

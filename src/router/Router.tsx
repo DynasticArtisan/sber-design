@@ -11,6 +11,7 @@ export interface Location {
   path: RoutePath;
   params?: {
     module?: number;
+    theme?: number;
     lesson?: number;
     page?: number;
   };

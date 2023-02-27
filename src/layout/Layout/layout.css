@@ -1,5 +1,7 @@
 .layout {
   min-height: 100vh;
   position: relative;
-  background: var(--background);
+  overflow: hidden;
+  background-color: var(--background);
+  z-index: 0;
 }

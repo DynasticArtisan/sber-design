@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
 }
-@media (max-width: 1339px){
+@media (max-width: 767px) {
   .logo {
     height: 48px;
   }

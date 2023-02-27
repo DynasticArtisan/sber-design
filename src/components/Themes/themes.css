@@ -1,61 +1,70 @@
 .themes {
-    display: flex;
-    flex-direction: column;
-    gap: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
 }
 .theme__label {
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    color: black
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: black;
 }
 .theme__title {
-    cursor: pointer;
-    padding: 10px 2px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 24px;
-    color: black
+  cursor: pointer;
+  padding: 10px 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: black;
 }
 .theme__title svg {
-    fill: var(--gray)
+  fill: var(--gray);
 }
 .theme__dropdown {
-    height: 0px;
-    overflow: hidden;
+  height: 0px;
+  overflow: hidden;
 }
 .theme__lessons {
-    padding-top: 20px;
-    margin-left: 9px;
-    padding-left: 11px;
-    border-left: 2px solid #E5E7EB;
+  padding-top: 20px;
+  margin-left: 9px;
+  padding-left: 11px;
+  border-left: 2px solid #e5e7eb;
 }
 .theme__lessons-label {
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
 }
 .theme__lessons-item {
-    cursor: pointer;
-    display: block;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: -0.003em;
-    padding: 10px 4px;
-    display: flex;
-    align-items: center;
+  position: relative;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.003em;
+  padding: 10px 4px;
+  display: flex;
+  align-items: center;
 
-    color: #35383A;
+  color: #35383a;
 }
-
+.theme__lessons-item._current::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -13px;
+  width: 2px;
+  border-radius: 2px;
+  background-color: var(--primary);
+}
 .theme._open .theme__dropdown {
-    height: fit-content;
+  height: fit-content;
 }
 .theme._open .theme__title svg {
-    transform: rotate(90deg);
-    fill: var(--primary);
+  transform: rotate(90deg);
+  fill: var(--primary);
 }

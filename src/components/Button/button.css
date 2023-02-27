@@ -1,10 +1,19 @@
 .button {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    letter-spacing: -0.023em;
-    color: white;
-    padding: 18px 24px;
-    background: var(--primary);
-    border-radius: 14px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.023em;
+  color: white;
+  padding: 18px 24px;
+  background-color: var(--primary);
+  transition: background-color 0.3s;
+  border-radius: 14px;
+}
+.button:hover {
+  background-color: var(--primaryDark);
+}
+.button:disabled {
+  opacity: 0.4;
+  pointer-events: none;
 }
