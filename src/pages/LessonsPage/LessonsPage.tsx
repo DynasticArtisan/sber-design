@@ -1,17 +1,25 @@
 import React from "react";
-import { Header, Lessons } from "../../components";
+import { Header, Lesson, Lessons } from "../../components";
+import { useMatchTablet } from "../../hooks/useMatchMedia";
 import Container from "../../layout/Container/Container";
+import Layout from "../../layout/Layout/Layout";
 import Menu from "../../layout/Menu/Menu";
 
 const LessonsPage = () => {
+  const isTablet = useMatchTablet()
   return (
-    <>
+    <Layout>
       <Header />
-      <Menu />
+      {
+        !isTablet && <Menu />
+      }
       <Container>
-        <Lessons />
+        
+        {
+          isTablet ? <Lessons /> : <Lesson/>
+        }
       </Container>
-    </>
+    </Layout>
   );
 };
 

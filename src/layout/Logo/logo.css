@@ -4,3 +4,11 @@
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 1339px){
+  .logo {
+    height: 48px;
+  }
+  .logo img {
+    width: 170px;
+  }
+}

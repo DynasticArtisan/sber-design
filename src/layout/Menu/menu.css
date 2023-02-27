@@ -1,8 +1,22 @@
 .menu {
-  position: absolute;
+  position: fixed;
   left: 28px;
   top: 108px;
   bottom: 108px;
   width: 324px;
-  background-color: gray;
+  overflow-y: auto;
+}
+.menu__modules-link {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.023em;
+  color: #35383A;
+}
+.menu__themes {
+  margin-top: 28px;
 }
