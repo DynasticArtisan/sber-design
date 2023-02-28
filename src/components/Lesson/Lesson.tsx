@@ -1,10 +1,12 @@
 import React from "react";
 import Button from "../Button/Button";
 import Test from "../Test/Test";
+import { useState } from "react";
 
 import "./lesson.css";
 
 const Lesson = () => {
+  const [done, setDone] = useState(false);
   return (
     <div className="page">
       <div className="page__title">Что такое дизайн?</div>
@@ -13,9 +15,11 @@ const Lesson = () => {
         что такое дизайн. Кажется, на этот простой вопрос ответить можно
         очень по-разному, давайте проверим:
       </div>
-      <Test />
+      <Test done={done} />
       <div className="page__btns">
-        <Button>Так и какой же правильный ответ?</Button>
+        <Button onClick={() => setDone((t) => !t)}>
+          Так и какой же правильный ответ?
+        </Button>
       </div>
     </div>
   );

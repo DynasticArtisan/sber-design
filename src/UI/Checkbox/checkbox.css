@@ -1,0 +1,34 @@
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: var(--bg-white);
+}
+
+.checkbox svg {
+  color: white;
+}
+.checkbox._right {
+  background: rgba(8, 140, 217, 0.1);
+}
+.checkbox._right svg {
+  color: var(--primary);
+}
+.checkbox._wrong {
+  background: rgba(255, 41, 62, 0.1);
+}
+.checkbox._wrong svg {
+  color: var(--error);
+}
+
+.checkbox._checked {
+  background-color: var(--primary);
+}
+.checkbox._checked._wrong {
+  background-color: var(--error);
+}
+.checkbox svg,
+.checkbox._checked._wrong svg,
+.checkbox._checked._right svg {
+  color: white;
+}

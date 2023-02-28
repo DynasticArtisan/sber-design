@@ -91,6 +91,10 @@ body {
   --fontInterface: SBInterface, sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
 button {
   cursor: pointer;
   outline: none;

@@ -1,7 +1,6 @@
-import { useRouter } from "../../router/Router";
-import { RoutePath } from "../../router/Routes";
-import Module from "./Module";
 import "./modules.css";
+import { Link } from "react-router-dom";
+import Module from "../../UI/Module/Module";
 
 const modules = [
   {
@@ -33,14 +32,12 @@ const modules = [
 ];
 
 const Modules = () => {
-  const { navigate } = useRouter();
   return (
     <div className="modules">
-      {modules.map((module) => (
-        <Module
-          {...module}
-          onClick={() => navigate({ path: RoutePath.lessons })}
-        />
+      {modules.map((module, idx) => (
+        <Link to={`/modules/${idx}/themes`}>
+          <Module {...module} idx={idx} key={idx} />
+        </Link>
       ))}
     </div>
   );

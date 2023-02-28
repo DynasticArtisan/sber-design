@@ -1,4 +1,4 @@
-import Theme from "./Theme";
+import Theme from "../../UI/Theme/Theme";
 import "./themes.css";
 
 const themes = [
