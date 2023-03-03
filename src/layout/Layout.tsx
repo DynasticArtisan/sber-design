@@ -8,14 +8,10 @@ import Menu from "./Sidebar/Menu";
 
 const Layout = () => {
   const location = useLocation();
-  const isTablet = useMatchTablet();
-  const showSidebar =
-    location.pathname !== "/" && location.pathname !== "/modules" && !isTablet;
 
   return (
     <div className="layout">
       {location.pathname === "/" ? <LargeDecor /> : <Header />}
-      {showSidebar && <Menu />}
       <Outlet />
     </div>
   );

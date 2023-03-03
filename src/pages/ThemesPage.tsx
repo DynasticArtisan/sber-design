@@ -1,23 +1,26 @@
 import React, { useEffect } from "react";
-import { Lessons } from "../components";
 import { useMatchTablet } from "../hooks/useMatchMedia";
 import Container from "../UI/Container/Container";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { Themes } from "../components";
 
 const LessonsPage = () => {
+  const params = useParams();
+  const module = Number(params.module) || 0;
+
   const isTablet = useMatchTablet();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!isTablet) {
-      navigate("/modules", { replace: true });
+      navigate("0/0/0", { replace: true });
     }
   }, [isTablet]);
 
   return (
     <Container>
       <div className="page">
-        <Lessons />
+        <Themes module={module} />
       </div>
     </Container>
   );

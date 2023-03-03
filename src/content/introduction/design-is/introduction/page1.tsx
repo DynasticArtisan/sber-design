@@ -1,12 +1,8 @@
 import React from "react";
-import Button from "../../UI/Button/Button";
-import Test from "../Test/Test";
-import { useState } from "react";
+import Test from "../../../../components/Test/Test";
+import Button from "../../../../UI/Button/Button";
 
-import "./lesson.css";
-
-const Lesson = () => {
-  const [done, setDone] = useState(false);
+const page1 = () => {
   return (
     <div className="page">
       <div className="page__title">Что такое дизайн?</div>
@@ -15,14 +11,12 @@ const Lesson = () => {
         что такое дизайн. Кажется, на этот простой вопрос ответить можно
         очень по-разному, давайте проверим:
       </div>
-      <Test done={done} />
+      <Test done={false} />
       <div className="page__btns">
-        <Button onClick={() => setDone((t) => !t)}>
-          Так и какой же правильный ответ?
-        </Button>
+        <Button>Так и какой же правильный ответ?</Button>
       </div>
     </div>
   );
 };
 
-export default Lesson;
+export default page1;

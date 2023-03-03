@@ -1,62 +1,51 @@
-import Theme from "../../UI/Theme/Theme";
+import React, { FC, useState } from "react";
+import { Link } from "react-router-dom";
+import { modules } from "../../content";
+import TriangleSvg from "../../UI/SVG/TriangleSvg";
 import "./themes.css";
 
-const themes = [
-  {
-    theme: 1,
-    title: "Дизайн — это…",
-    lessons: [
-      {
-        title: "1. Что такое дизайн?",
-      },
-      {
-        title: "2. Что такое хороший дизайн?",
-      },
-      {
-        title: "3. Кейс. Компьютерная мышь",
-      },
-      {
-        title: "4. Кейс. Кухонный помощник",
-      },
-      {
-        title: "5. Как создаётся дизайн-решение",
-      },
-      {
-        title: "6. Зачем разбираться в дизайне?",
-      },
-    ],
-  },
-  {
-    theme: 2,
-    title: "Дизайн сегодня",
-    lessons: [
-      {
-        title: "1. Что такое дизайн?",
-      },
-      {
-        title: "2. Что такое хороший дизайн?",
-      },
-      {
-        title: "3. Кейс. Компьютерная мышь",
-      },
-      {
-        title: "4. Кейс. Кухонный помощник",
-      },
-      {
-        title: "5. Как создаётся дизайн-решение",
-      },
-      {
-        title: "6. Зачем разбираться в дизайне?",
-      },
-    ],
-  },
-];
+interface Themes {
+  module: number;
+  curTheme?: number;
+  curLesson?: number;
+}
 
-const Themes = () => {
+const Themes: FC<Themes> = ({ module, curTheme = 0, curLesson }) => {
+  const [open, setOpen] = useState(curTheme);
+  const themes = modules[module].themes;
+
   return (
     <div className="themes">
-      {themes.map((theme) => (
-        <Theme {...theme} />
+      {themes.map(({ lessons, title }, theme) => (
+        <div className={"theme" + (theme === open ? " _open" : "")}>
+          <div className="theme__label">Тема {theme}</div>
+          <div className="theme__title" onClick={() => setOpen(theme)}>
+            <TriangleSvg />
+            <span>{title}</span>
+          </div>
+          <div className="theme__dropdown">
+            <div className="theme__lessons">
+              <span className="theme__lessons-label">Уроки</span>
+              <div className="theme__lessons-list">
+                {lessons.map(({ title }, lesson) => (
+                  <Link
+                    className={
+                      curTheme === theme && curLesson === lesson
+                        ? "theme__lessons-item _current"
+                        : "theme__lessons-item"
+                    }
+                    to={`/modules/${module}/${theme}/${lesson}/0`}
+                    key={lesson}
+                  >
+                    <span>
+                      {lesson}. {title}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       ))}
     </div>
   );

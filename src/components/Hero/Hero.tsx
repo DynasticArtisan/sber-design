@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button/Button";
+import Button from "../../UI/Button/Button";
 import "./hero.css";
 import image from "./hero.png";
 import { useNavigate } from "react-router-dom";

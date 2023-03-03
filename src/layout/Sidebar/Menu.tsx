@@ -1,10 +1,14 @@
 import React from "react";
-import { Lessons } from "../../components";
+import { Themes } from "../../components";
 import ArrowSvg from "../../UI/SVG/ArrowSvg";
 import "./menu.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Menu = () => {
+  const { module, theme, lesson } = useParams();
+  const moduleIdx = Number(module) || 0;
+  const curTheme = Number(theme);
+  const curLesson = Number(lesson);
   return (
     <div className="menu">
       <Link className="menu__modules-link" to="/modules">
@@ -12,7 +16,7 @@ const Menu = () => {
         <span>Модули</span>
       </Link>
       <div className="menu__themes">
-        <Lessons />
+        <Themes module={moduleIdx} curTheme={curTheme} curLesson={curLesson} />
       </div>
     </div>
   );
