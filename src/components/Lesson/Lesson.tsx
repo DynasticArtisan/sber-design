@@ -1,28 +1,16 @@
 import React from "react";
-import Button from "../../UI/Button/Button";
-import Test from "../Test/Test";
-import { useState } from "react";
+import { useParams } from "react-router-dom";
 
-import "./lesson.css";
+import "./lesson.scss";
+import { modules } from "../../course";
 
 const Lesson = () => {
-  const [done, setDone] = useState(false);
-  return (
-    <div className="page">
-      <div className="page__title">Что такое дизайн?</div>
-      <div className="page__text">
-        Прежде чем погрузиться в бизнес-контекст, давайте точно определимся,
-        что такое дизайн. Кажется, на этот простой вопрос ответить можно
-        очень по-разному, давайте проверим:
-      </div>
-      <Test done={done} />
-      <div className="page__btns">
-        <Button onClick={() => setDone((t) => !t)}>
-          Так и какой же правильный ответ?
-        </Button>
-      </div>
-    </div>
-  );
+  const { module, theme, lesson, page } = useParams();
+  const curModule = modules[Number(module)];
+  const curTheme = curModule.themes[Number(theme)];
+  const curLesson = curTheme.lessons[Number(lesson)];
+  const Lesson = curLesson.pages[Number(page)];
+  return <Lesson />;
 };
 
 export default Lesson;

@@ -1,40 +1,30 @@
-import Link from "../../router/Link";
-import { useRouter } from "../../router/Router";
-import { RoutePath } from "../../router/Routes";
-import CornerSvg from "../../UI/SVG/CornerSvg";
-import "./breadcrumbs.css";
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Breadcrumbs = () => {
-  const { location } = useRouter();
+import CornerSvg from "../SVG/CornerSvg";
+import "./breadcrumbs.scss";
+
+const Breadcrumbs: React.FC = () => {
   return (
     <div className="breadcrumbs">
-      <Link to={{ path: RoutePath.modules }} className="breadcrumbs__link">
+      <Link to={"/modules"} className="breadcrumbs__link">
         Модули
       </Link>
-
       <CornerSvg />
       <Link
-        to={{ path: RoutePath.lessons }}
+        to={"/modules"}
         className={
-          location.path === RoutePath.lessons
+          location.pathname === "/"
             ? "breadcrumbs__link _current"
             : "breadcrumbs__link"
         }
       >
         Тема и Уроки
       </Link>
-
-      {location.path !== RoutePath.lessons && (
+      {location.pathname !== "/" && (
         <>
           <CornerSvg />
-          <Link
-            to={{ path: RoutePath.lesson }}
-            className={
-              location.path === RoutePath.lesson
-                ? "breadcrumbs__link _current"
-                : "breadcrumbs__link"
-            }
-          >
+          <Link to="/modules" className="breadcrumbs__link _current">
             Урок 2
           </Link>
         </>
@@ -42,4 +32,5 @@ const Breadcrumbs = () => {
     </div>
   );
 };
+
 export default Breadcrumbs;

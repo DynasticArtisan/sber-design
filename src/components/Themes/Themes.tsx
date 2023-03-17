@@ -1,25 +1,26 @@
-import React, { FC, useState } from "react";
-import { Link } from "react-router-dom";
-import { modules } from "../../content";
-import TriangleSvg from "../../UI/SVG/TriangleSvg";
-import "./themes.css";
+import React, { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import cn from "classnames";
 
-interface Themes {
-  module: number;
-  curTheme?: number;
-  curLesson?: number;
-}
+import { modules } from "../../course";
+import TriangleSvg from "../SVG/TriangleSvg";
+import "./themes.scss";
 
-const Themes: FC<Themes> = ({ module, curTheme = 0, curLesson }) => {
-  const [open, setOpen] = useState(curTheme);
-  const themes = modules[module].themes;
+const Themes: React.FC = () => {
+  const params = useParams();
+  const module = Number(params.module);
+  const theme = Number(params.theme) || 0;
+  const lesson = Number(params.lesson);
+
+  const themes = modules[Number(module)].themes;
+  const [open, setOpen] = useState(theme || 0);
 
   return (
     <div className="themes">
-      {themes.map(({ lessons, title }, theme) => (
-        <div className={"theme" + (theme === open ? " _open" : "")}>
-          <div className="theme__label">Тема {theme}</div>
-          <div className="theme__title" onClick={() => setOpen(theme)}>
+      {themes.map(({ lessons, title }, themeNumber) => (
+        <div className={cn("theme", { open: open === themeNumber })}>
+          <div className="theme__label">Тема {themeNumber}</div>
+          <div className="theme__title" onClick={() => setOpen(themeNumber)}>
             <TriangleSvg />
             <span>{title}</span>
           </div>
@@ -27,19 +28,15 @@ const Themes: FC<Themes> = ({ module, curTheme = 0, curLesson }) => {
             <div className="theme__lessons">
               <span className="theme__lessons-label">Уроки</span>
               <div className="theme__lessons-list">
-                {lessons.map(({ title }, lesson) => (
+                {lessons.map(({ title }, lessonNumber) => (
                   <Link
-                    className={
-                      curTheme === theme && curLesson === lesson
-                        ? "theme__lessons-item _current"
-                        : "theme__lessons-item"
-                    }
-                    to={`/modules/${module}/${theme}/${lesson}/0`}
+                    className={cn("theme__lessons-item", {
+                      current: theme === themeNumber && lesson === lessonNumber,
+                    })}
+                    to={`/modules/${module}/${themeNumber}/${lessonNumber}/0`}
                     key={lesson}
                   >
-                    <span>
-                      {lesson}. {title}
-                    </span>
+                    {lessonNumber}. {title}
                   </Link>
                 ))}
               </div>

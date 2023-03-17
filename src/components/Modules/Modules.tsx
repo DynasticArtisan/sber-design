@@ -1,7 +1,8 @@
-import "./modules.css";
 import { Link } from "react-router-dom";
-import Module from "../../UI/Module/Module";
-import { modules } from "../../content";
+
+import "./modules.scss";
+import { modules } from "../../course";
+import { Module } from "../UI";
 
 const Modules = () => {
   return (

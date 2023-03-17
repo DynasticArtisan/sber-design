@@ -1,9 +1,9 @@
-import Checkbox from "../../UI/Checkbox/Checkbox";
+import Checkbox from "../UI/Checkbox/Checkbox";
 
 import "./test.css";
 import { useReducer } from "react";
 import { FC } from "react";
-import Input from "../../UI/Input/Input";
+import Input from "../UI/Input/Input";
 
 const test = {
   id: "designForYou",
