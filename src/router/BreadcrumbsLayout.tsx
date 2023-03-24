@@ -1,11 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-import { useMatchTablet } from "../hooks/useMatchMedia";
-import { Breadcrumbs } from "../components";
+import { Breadcrumbs } from "@components/index";
+import useMatchMedia from "@hooks/useMatchMedia";
 
-const BreadcrumbsLayout = () => {
-  const isTablet = useMatchTablet();
+const BreadcrumbsLayout: React.FC = () => {
+  const isTablet = useMatchMedia("(max-width: 1339px)");
   return (
     <>
       {isTablet && <Breadcrumbs />}

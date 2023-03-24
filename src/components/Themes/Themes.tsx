@@ -1,10 +1,11 @@
+import "./themes.scss";
+
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import cn from "classnames";
 
-import { modules } from "../../course";
-import TriangleSvg from "../SVG/TriangleSvg";
-import "./themes.scss";
+import { TriangleSvg } from "@components/SVG";
+import modules from "@course/modules";
 
 const Themes: React.FC = () => {
   const params = useParams();

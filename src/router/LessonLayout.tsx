@@ -1,18 +1,14 @@
 import React from "react";
 
-import { useMatchTablet } from "../hooks/useMatchMedia";
-import { Lesson, Sidebar } from "../components";
-import { Container } from "../components/UI";
+import { Container } from "@components/UI";
+import useLesson from "@hooks/useLesson";
 
 const LessonPage: React.FC = () => {
-  const isTablet = useMatchTablet();
+  const Lesson = useLesson();
   return (
-    <>
-      {!isTablet && <Sidebar />}
-      <Container>
-        <Lesson />
-      </Container>
-    </>
+    <Container>
+      <Lesson />
+    </Container>
   );
 };
 

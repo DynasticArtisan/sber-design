@@ -1,11 +1,12 @@
+import "./sidebar.scss";
+
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./sidebar.css";
-import Themes from "../Themes/Themes";
-import { ArrowSvg } from "../SVG";
+import { Themes } from "@components/index";
+import { ArrowSvg } from "@components/SVG";
 
-const Sidebar = () => {
+const Sidebar: React.FC = () => {
   return (
     <div className="sidebar">
       <Link className="sidebar__modules-link" to="/modules">

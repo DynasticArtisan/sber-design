@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import CheckSvg from "../../SVG/CheckSvg";
-import CrossSvg from "../../SVG/CrossSvg";
 import "./checkbox.scss";
+
+import React, { FC } from "react";
+import { CheckSvg, CrossSvg } from "@components/SVG";
 
 interface CheckboxProps {
   className?: string;

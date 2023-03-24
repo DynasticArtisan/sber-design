@@ -1,6 +1,7 @@
+import page1 from "./page1";
+
 export default {
-  title: "Заключение",
+  title: "5. Заключение",
   description: "Подведем итоги и поделимся чек-листом",
-  counts: "1 тема • 1 урок",
-  themes: [],
+  pages: [page1],
 };

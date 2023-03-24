@@ -1,9 +1,10 @@
-import React, { FC, HTMLProps } from "react";
 import "./input.scss";
+
+import React, { HTMLProps } from "react";
 
 interface InputProps extends HTMLProps<HTMLInputElement> {}
 
-const Input: FC<InputProps> = ({ type, className, ...props }) => {
+const Input: React.FC<InputProps> = ({ type, className, ...props }) => {
   return <input type="text" className={"input " + className} {...props} />;
 };
 

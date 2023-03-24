@@ -1,21 +1,22 @@
 import React from "react";
-import Test from "../../../../components/Test/Test";
-import Button from "../../../../components/UI/Button/Button";
+
+import Test from "@components/Test/Test";
+import { Button, Text, Title } from "@components/UI";
 
 const page1 = () => {
   return (
-    <div className="page">
-      <div className="page__title">Что такое дизайн?</div>
-      <div className="page__text">
+    <>
+      <Title>Что такое дизайн?</Title>
+      <Text>
         Прежде чем погрузиться в бизнес-контекст, давайте точно определимся,
         что такое дизайн. Кажется, на этот простой вопрос ответить можно
         очень по-разному, давайте проверим:
-      </div>
+      </Text>
       <Test done={false} />
       <div className="page__btns">
         <Button>Так и какой же правильный ответ?</Button>
       </div>
-    </div>
+    </>
   );
 };
 

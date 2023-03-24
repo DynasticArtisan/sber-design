@@ -1,9 +1,8 @@
-import Checkbox from "../UI/Checkbox/Checkbox";
-
 import "./test.css";
-import { useReducer } from "react";
-import { FC } from "react";
-import Input from "../UI/Input/Input";
+
+import React, { useReducer } from "react";
+
+import { Checkbox, Input } from "@components/UI";
 
 const test = {
   id: "designForYou",
@@ -22,7 +21,7 @@ const test = {
 
 const answered = [0, 3];
 
-const Test: FC<{ done: boolean }> = ({ done }) => {
+const Test: React.FC<{ done: boolean }> = ({ done }) => {
   const { question, answers, rightAnswers, withOtherAnswer } = test;
 
   const [selected, select] = useReducer(

@@ -9,8 +9,8 @@ const CheckSvg = () => (
     <path
       d="M4.3125 9.16803L8.89984 13.5L16.3125 6.5"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinejoin="round"
     />
   </svg>
 );

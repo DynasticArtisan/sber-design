@@ -1,7 +1,8 @@
-import React, { FC, ReactNode } from "react";
 import "./container.scss";
 
-const Container: FC<{ children: ReactNode }> = ({ children }) => {
+import React, { ReactNode } from "react";
+
+const Container: React.FC<{ children: ReactNode }> = ({ children }) => {
   return <div className="container">{children}</div>;
 };
 

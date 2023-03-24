@@ -1,8 +1,24 @@
 .breadcrumbs {
-  padding: 0 20px;
+  position: fixed;
+  top: 88px;
+  left: 0;
+  right: 0;
+  transition: opacity 0.2s;
+  &.scrolled {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.breadcrumbs__container {
+  max-width: 704px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   align-items: center;
+  padding: 0 20px;
 }
+
 .breadcrumbs__link {
   padding: 0 8px;
   font-weight: 500;
@@ -12,9 +28,10 @@
   color: #76767a;
   cursor: pointer;
 }
-.breadcrumbs__link._current {
+.breadcrumbs__link.current {
   color: black;
   position: relative;
+  pointer-events: none;
 }
 .breadcrumbs__link._current::after {
   content: "";

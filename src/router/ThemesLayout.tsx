@@ -1,25 +1,23 @@
 import React, { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import { useMatchTablet } from "../hooks/useMatchMedia";
-import { Themes } from "../components";
-import { Container } from "../components/UI";
+import { Themes } from "@components/index";
+import { Container } from "@components/UI";
+import useMatchMedia from "@hooks/useMatchMedia";
 
 const LessonsPage: React.FC = () => {
-  const isTablet = useMatchTablet();
+  const isDesctop = useMatchMedia("(min-width: 1340px)");
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isTablet) {
+    if (isDesctop) {
       navigate("0/0/0", { replace: true });
     }
-  }, [isTablet]);
+  }, [isDesctop]);
 
   return (
     <Container>
-      <div className="page">
-        <Themes />
-      </div>
+      <Themes />
     </Container>
   );
 };

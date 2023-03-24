@@ -1,15 +1,13 @@
 import React from "react";
 
-import { Modules } from "../components";
-import { Container } from "../components/UI";
+import { Modules } from "@components/index";
+import { Container, Title } from "@components/UI";
 
 const ModulesPage: React.FC = () => {
   return (
     <Container>
-      <div className="page">
-        <div className="page__title">Модули</div>
-        <Modules />
-      </div>
+      <Title>Модули</Title>
+      <Modules />
     </Container>
   );
 };

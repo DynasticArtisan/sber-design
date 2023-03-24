@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import cn from "classnames";
 
 import "./header.scss";
 import decor from "../../assets/img/header-decor.png";
-import { useMatchTablet } from "../../hooks/useMatchMedia";
-import { ArrowSvg, SberSvg } from "../SVG";
+
+import { ArrowSvg, SberSvg } from "@components/SVG";
+import useMatchMedia from "@hooks/useMatchMedia";
+import useBackLink from "@hooks/useBackLink";
 
 const Header: React.FC = () => {
-  const location = useLocation();
+  const isTablet = useMatchMedia("(max-width: 1339px)");
   const [isScrolled, setScrolled] = useState(false);
-  const isTablet = useMatchTablet();
+  const backLink = useBackLink();
 
   useEffect(() => {
     const scrollListener = () => {
@@ -22,45 +25,20 @@ const Header: React.FC = () => {
     window.addEventListener("scroll", scrollListener);
     return () => window.removeEventListener("scroll", scrollListener);
   });
+
   return (
     <div className="header">
       <div className="header__container">
         <img className="header__decor" src={decor} />
         <div
-          className={
-            isTablet && isScrolled ? "header__card _scrolled" : "header__card"
-          }
+          className={cn("header__card", { scrolled: isTablet && isScrolled })}
         >
-          {isTablet && location.pathname === "/modules" && (
-            <Link className="header__back-link" to="/">
+          {isTablet && (
+            <Link className="header__back-link" to={backLink.to}>
               <ArrowSvg />
-              <span>
-                <b>Курс. Дизайн-стратегия:</b> бизнес-решения на основе дизайна
-              </span>
+              {backLink.text}
             </Link>
           )}
-          {/* {isTablet && location.pathname === RoutePath.lessons && (
-      <Link
-        className="header__back-link"
-        to={{ path: RoutePath.modules }}
-      >
-        <ArrowSvg />
-        <span>
-          <b>Модули курса</b>
-        </span>
-      </Link>
-    )}
-    {isTablet && location.path === RoutePath.lesson && (
-      <Link
-        className="header__back-link"
-        to={{ path: RoutePath.lessons }}
-      >
-        <ArrowSvg />
-        <span>
-          <b>Тема и Уроки</b>
-        </span>
-      </Link>
-    )} */}
           <Link to="/" className="header__home-link">
             <SberSvg />
           </Link>
